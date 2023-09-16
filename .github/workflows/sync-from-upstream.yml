@@ -48,6 +48,14 @@ jobs:
     - name: No new commits
       if: steps.sync.outputs.has_new_commits == 'false'
       run: echo "There were no new commits."
-      
-    - name: Show value of 'has_new_commits'
-      run: echo ${{ steps.sync.outputs.has_new_commits }}
+
+    # Step 4: (CUSTOM) Merge changes from main into jpf-main branch
+    - name: Merge to jpf-main branch
+      if: steps.sync.outputs.has_new_commits == 'true'
+      run: |
+        git config user.name jpfulton
+        git config user.email jpatrick.fulton@gmail.com
+        git pull
+        git checkout jpf-main
+        git merge main
+        git push
