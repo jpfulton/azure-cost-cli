@@ -34,7 +34,7 @@ public static class PollyPolicyExtensions
             );
 
         // Define Timeout policy        
-        var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(60));
+        var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(TimeSpan.FromSeconds(180));
 
         // Wrap WaitAndRetry with Timeout
         var resilientPolicy = Policy.WrapAsync(timeoutPolicy, waitAndRetryPolicy);
