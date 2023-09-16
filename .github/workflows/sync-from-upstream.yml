@@ -1,4 +1,4 @@
-name: 'Upstream Sync'
+name: '(JPF) Upstream Sync'
 
 on:
   schedule:
