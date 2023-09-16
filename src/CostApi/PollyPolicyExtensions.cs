@@ -27,8 +27,8 @@ public static class PollyPolicyExtensions
                             }
                         }
                     }
-                    // If no header with a retry-after value is found, fall back to 2 seconds.
-                    return TimeSpan.FromSeconds(2);
+                    // If no header with a retry-after value is found, fall back to 5 seconds.
+                    return TimeSpan.FromSeconds(5);
                 },
                 onRetryAsync: (msg, time, retries, context) => Task.CompletedTask
             );
