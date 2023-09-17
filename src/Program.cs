@@ -79,6 +79,9 @@ app.Configure(config =>
   
   config.AddCommand<RegionsCommand>("regions")
     .WithDescription("Get the available Azure regions.");
+
+  config.AddCommand<VersionCommand>("version")
+    .WithDescription("Show current CLI version.");
   
   config.ValidateExamples();
 });
